@@ -17,7 +17,6 @@ export class ContectPageComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-
     const id = this.route.snapshot.paramMap.get('id');
     this.listing = fakeListings.find(listing => listing.id === id);
     this.message = `Hi, I'm intersted in your ${this.listing?.name.toLocaleLowerCase}!`;

@@ -10,6 +10,8 @@ import { ContectPageComponent } from './components/contect-page/contect-page.com
 import { MyListingsPageComponent } from './components/my-listings-page/my-listings-page.component';
 import { NewListingPageComponent } from './components/new-listing-page/new-listing-page.component';
 import { EditListingPageComponent } from './components/edit-listing-page/edit-listing-page.component';
+import { ListingDataFormComponent } from './components/listing-data-form/listing-data-form.component';
+import { BarComponent } from './components/bar/bar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { EditListingPageComponent } from './components/edit-listing-page/edit-li
     ContectPageComponent,
     MyListingsPageComponent,
     NewListingPageComponent,
-    EditListingPageComponent
+    EditListingPageComponent,
+    ListingDataFormComponent,
+    BarComponent
   ],
   imports: [
     BrowserModule,
