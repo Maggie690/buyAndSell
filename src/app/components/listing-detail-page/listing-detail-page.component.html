@@ -2,11 +2,11 @@
     <a routerLink="/listings">
         <button>Back</button>
     </a>
-    <h2>{{ listing.name}}</h2>
-    <p>{{ listing.description}}</p>
-    <p>${{ listing.price}}</p>
-    <p>{{ listing.views}}</p>
-    <a routerLink="/content/{{ listing.id }}">
+    <h2>{{ $any(listing).name}}</h2>
+    <p>{{ $any(listing).description}}</p>
+    <p>${{ $any(listing).price}}</p>
+    <p>{{ $any(listing).views}}</p>
+    <a routerLink="/content/{{ $any(listing).id }}">
         <button>Content seller</button>
     </a>
 </div>

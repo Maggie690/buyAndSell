@@ -15,7 +15,10 @@ export class ContectPageComponent implements OnInit {
   message: string = '';
   listing: Listing | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router, private listingService: ListingsService) { }
+  constructor(
+    private route: ActivatedRoute, 
+    private router: Router, 
+    private listingService: ListingsService) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id') as string;

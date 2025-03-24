@@ -15,7 +15,7 @@ export class EditListingPageComponent implements OnInit {
   price: string = "";
   view: number = 0;
   
-  listing: Listing | undefined;
+  listing!: Listing | undefined;
   
   constructor(private route: ActivatedRoute, private router: Router) { }
 
