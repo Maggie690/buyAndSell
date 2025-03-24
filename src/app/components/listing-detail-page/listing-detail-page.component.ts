@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Listing } from '../../interfaces/types';
-import { fakeListings } from '../../interfaces/fake-data';
+import { ListingsService } from '../../sevices/listings.service';
+// import { fakeListings } from '../../interfaces/fake-data';
 
 
 @Component({
@@ -11,12 +12,19 @@ import { fakeListings } from '../../interfaces/fake-data';
   styleUrl: './listing-detail-page.component.css'
 })
 export class ListingDetailPageComponent implements OnInit {
-  listing: Listing | undefined;
+  isLoading: boolean = true;
+  listing: Listing[] = [];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute, private listingService: ListingsService) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.listing = fakeListings.find(listing => listing.id === id);
+    const id = this.route.snapshot.paramMap.get('id') as string;
+    this.listingService.getListingById(id)
+      .subscribe(listing => {
+        listing = listing;
+        this.isLoading = false;
+      });
+
+    this.listingService.addListingById(id).subscribe(() => console.log('View updated!'))
   }
 }

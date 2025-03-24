@@ -13,6 +13,8 @@ export class EditListingPageComponent implements OnInit {
   name: string = "";
   description: string = "";
   price: string = "";
+  view: number = 0;
+  
   listing: Listing | undefined;
   
   constructor(private route: ActivatedRoute, private router: Router) { }

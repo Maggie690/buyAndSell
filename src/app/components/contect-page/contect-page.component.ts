@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Listing } from '../../interfaces/types';
 import { fakeListings } from '../../interfaces/fake-data';
+import { ListingsService } from '../../sevices/listings.service';
 
 @Component({
   selector: 'app-contect-page',
@@ -14,12 +15,15 @@ export class ContectPageComponent implements OnInit {
   message: string = '';
   listing: Listing | undefined;
 
-  constructor(private route: ActivatedRoute, private router: Router) { }
+  constructor(private route: ActivatedRoute, private router: Router, private listingService: ListingsService) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id');
-    this.listing = fakeListings.find(listing => listing.id === id);
-    this.message = `Hi, I'm intersted in your ${this.listing?.name.toLocaleLowerCase}!`;
+    const id = this.route.snapshot.paramMap.get('id') as string;
+    this.listingService.getListingById(id).subscribe(listing => {
+      this.listing = listing;
+      this.message = `Hi, I'm intersted in your ${this.listing?.name.toLocaleLowerCase}!`;
+
+    });
   }
 
   sendMessage(): void {

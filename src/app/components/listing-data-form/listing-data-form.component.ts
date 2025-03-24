@@ -13,10 +13,12 @@ export class ListingDataFormComponent implements OnInit {
   @Input() currentName: any;
   @Input() currentDescription: any;
   @Input() currentPrice: any;
+  @Input() currentViews: any;
 
   name: string = "";
   description: string = "";
   price: string = "";
+  views: string = "";
 
   @Output() onSubmit = new EventEmitter<Listing>;
 
@@ -26,6 +28,7 @@ export class ListingDataFormComponent implements OnInit {
     this.name = this.currentName;
     this.description = this.currentDescription;
     this.price = this.currentPrice;
+    this.views = this.currentViews;
   }
 
   onButtonClick(): void {
@@ -34,6 +37,7 @@ export class ListingDataFormComponent implements OnInit {
       name: this.name,
       description: this.description,
       price: Number(this.price),
+      views: Number(this.views),
     });
 
     this.router.navigateByUrl('/my-listings');

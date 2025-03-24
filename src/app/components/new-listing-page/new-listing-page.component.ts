@@ -11,6 +11,7 @@ export class NewListingPageComponent implements OnInit {
   name: string = "";
   description: string = "";
   price: string = "";
+  view: string = "";
 
   constructor(private router: Router) { }
 
